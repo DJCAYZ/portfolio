@@ -8,7 +8,7 @@ export const submissions: Submission[] = [
     files: [
       { type: 'text', contents: 'submissions/1/content.md' },
     ],
-    reflection: 'Test',
+    reflection: 'submissions/1/reflection.md',
   },
 ]
 

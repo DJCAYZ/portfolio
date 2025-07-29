@@ -37,6 +37,9 @@ export default async function SubmissionDetailsPage({
       return file;
     })
   )
+
+  const reflectionContents = submission.reflection && await getMdContent(submission.reflection);
+
   
   const course = courses[submission.course];
 
@@ -93,11 +96,11 @@ export default async function SubmissionDetailsPage({
       </div>
 
       {/* Learning Reflections */}
-      {submission.reflection && (
+      {reflectionContents && (
       <div className="bg-white text-black rounded-lg p-4">
         <h2 className="text-lg font-bold mb-4">Learning Reflections</h2>
         <div className="prose prose-slate max-w-none">
-          <p className="whitespace-pre-wrap">{submission.reflection}</p>
+          <TextContent contents={reflectionContents} />
         </div>
       </div>
       )}
