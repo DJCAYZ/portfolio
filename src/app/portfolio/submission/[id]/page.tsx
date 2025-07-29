@@ -2,15 +2,18 @@ import { courses, submissions } from "@/lib/data";
 import { cn, getColor, getTermColor, toProperCase } from "@/lib/utils";
 import dayjs from "dayjs";
 import { notFound } from "next/navigation";
-import Markdown from "react-markdown";
 import TextContent from "./text-content";
+import path from "path";
+import { promises as fs } from 'fs';
 
-async function getMdContent(path: string) {
+async function getMdContent(filePath: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${path}`);
-    return await res.text();
+    const cleanPath = filePath.startsWith('/') ? filePath.slice(1) : filePath;
+    const fullPath = path.join(process.cwd(), 'content', cleanPath);
+    const content = await fs.readFile(fullPath, 'utf-8');
+    return content;
   } catch (error) {
-    console.error(`Failed to fetch markdown content from ${path}`);
+    console.error(`Failed to read file: ${filePath}`, error);
   }
 }
 

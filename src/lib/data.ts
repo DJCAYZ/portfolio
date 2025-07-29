@@ -6,7 +6,7 @@ export const submissions: Submission[] = [
     term: 'prelims',
     date: '2025-07-28T11:35:36.3636Z',
     files: [
-      { type: 'text', contents: '/submissions/1/content.md' },
+      { type: 'text', contents: 'submissions/1/content.md' },
     ],
     reflection: 'Test',
   },
