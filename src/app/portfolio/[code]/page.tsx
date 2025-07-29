@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CourseCode, courses, submissions, Term } from "@/lib/data";
+import { CourseCode, courses, submissions } from "@/lib/data";
 import { cn, getColor, getTermColor, toProperCase } from "@/lib/utils";
 import dayjs from "dayjs";
 import Link from "next/link";
