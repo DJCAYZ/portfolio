@@ -1,5 +1,7 @@
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Metadata } from "next";
 import React from "react";
+import { PortfolioSidebar } from "./portfolio-sidebar";
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -9,8 +11,12 @@ export default function PortfolioLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <>
-      {children}
-    </>
+    <SidebarProvider>
+      <PortfolioSidebar />
+      <main className="w-full min-h-screen p-4">
+        <SidebarTrigger className="cursor-pointer border border-white" />
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }

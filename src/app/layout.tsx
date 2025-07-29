@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,10 +21,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - DJCAYZ',
-    default: 'DJCAYZ',
+    template: '%s - Charles Aaron',
+    default: 'Charles Aaron',
   },
-  description: "Charles' Little Corner of the Internet",
+  description: "Portfolio ni Charles",
 };
 
 export default function RootLayout({
