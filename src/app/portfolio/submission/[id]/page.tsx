@@ -1,6 +1,6 @@
 import { courses, submissions } from "@/lib/data";
 import { cn, getColor, getTermColor, toProperCase } from "@/lib/utils";
-import dayjs from "dayjs";
+import dayjs from "@/lib/dayjs";
 import { notFound } from "next/navigation";
 import TextContent from "./text-content";
 import path from "path";

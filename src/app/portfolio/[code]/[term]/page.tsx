@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CourseCode, courses, submissions, Term } from "@/lib/data";
 import { toProperCase } from "@/lib/utils";
-import dayjs from "dayjs";
+import dayjs from "@/lib/dayjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 

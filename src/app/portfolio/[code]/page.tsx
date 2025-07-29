@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CourseCode, courses, submissions } from "@/lib/data";
 import { cn, getColor, getTermColor, toProperCase } from "@/lib/utils";
-import dayjs from "dayjs";
+import dayjs from "@/lib/dayjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";

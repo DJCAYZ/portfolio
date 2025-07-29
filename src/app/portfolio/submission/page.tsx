@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { submissions } from "@/lib/data";
-import dayjs from "dayjs";
+import dayjs from "@/lib/dayjs";
 import Link from "next/link";
 
 export default function SubmissionListPage() {
