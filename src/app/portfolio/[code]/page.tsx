@@ -13,7 +13,7 @@ export default async function CoursePage({
 
   const course = courses[code];
   const pinned_submission = submissions.find(sub => sub.id === course.pinned_submission);
-  const recent_submissions = submissions.sort((a, b) => dayjs(a.date).diff(dayjs(b.date))).slice(0, 5);
+  const recent_submissions = submissions.filter(submission => submission.course === code).sort((a, b) => dayjs(a.date).diff(dayjs(b.date))).slice(0, 5);
 
   if (!course) return notFound();
 
