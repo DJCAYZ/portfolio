@@ -4,7 +4,7 @@ export const submissions: Submission[] = [
     name: 'My Expectations of ITCC508',
     course: 'itcc508',
     term: 'prelims',
-    date: '2025-07-28T11:35:36.3636Z',
+    date: '2025-07-29T22:42:00.000Z',
     files: [
       { type: 'text', contents: 'submissions/1/content.md' },
     ],
@@ -54,7 +54,7 @@ export const courses: Record<CourseCode, CourseInfo> = {
     pinned_submission: 1,
     schedule: [
       {day: 'Tuesday', startTime: '10:30AM', endTime: '12:30PM', room: 'ONL'},
-      {day: 'Friday', startTime: '10:30AM', endTime: '01:30PM', room: 'TBA'},
+      {day: 'Friday', startTime: '10:30AM', endTime: '01:30PM', room: 'H-310'},
     ],
     terms: ['prelims'],
   },
