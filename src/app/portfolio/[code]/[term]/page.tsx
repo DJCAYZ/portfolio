@@ -20,11 +20,11 @@ export default async function TermPage({ params } : {
       <h1 className="font-bold text-3xl">{course.shortCode} {toProperCase(term)} Submissions</h1>
       <div className="flex flex-col gap-2 w-full">
         {submissionList.map((submission, index) => (
-          <Button key={index} className="bg-white p-2 text-black rounded-lg grid grid-cols-3 gap-2 items-center" asChild>
+          <Button key={index} className="bg-white h-16 p-4 text-black rounded-lg grid grid-rows-2 grid-cols-2 gap-2 items-center" asChild>
             <Link href={`/portfolio/submission/${submission.id}`}>
-              <p>ID:{submission.id}</p>
-              <p className="text-center">{submission.name}</p>
-              <p className="text-right">{dayjs.tz(submission.date, 'Asia/Manila').format('MMM DD, YYYY hh:mm:ss A')}</p>
+              <p className="text-gray-500 text-xs">ID:{submission.id}</p>
+              <p className="row-span-2 text-gray-500 text-xs text-right">{dayjs.tz(submission.date, 'Asia/Manila').format('MM/DD - hh:mm A')}</p>
+              <p className="font-bold">{submission.name}</p>
             </Link>
           </Button>
         ))}

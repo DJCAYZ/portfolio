@@ -28,47 +28,29 @@ export default async function CoursePage({
           )
         }>{`${course.shortCode} - ${course.section}`}</span>
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        <div className="bg-white items-center text-black p-4 rounded-lg grid grid-cols-4 gap-2">
-          <span className="text-right">Course Code:</span>
-          <span className="col-span-3 text-center font-bold">{course.shortCode}</span>
-          <span className="text-right">Professor:</span>
-          <span className="col-span-3 text-center font-bold">{course.professor}</span>
-          <span className="text-right">Section:</span>
-          <span className="col-span-3 text-center font-bold">{course.section}</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="bg-white items-center text-black p-4 rounded-lg grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <span className="sm:text-right">Course Code:</span>
+          <span className="sm:col-span-3 sm:text-center font-bold">{course.shortCode}</span>
+          <span className="sm:text-right">Professor:</span>
+          <span className="sm:col-span-3 sm:text-center font-bold">{course.professor}</span>
+          <span className="sm:text-right">Section:</span>
+          <span className="sm:col-span-3 sm:text-center font-bold">{course.section}</span>
         </div>
         
-        <div className="grid grid-cols-3 bg-white p-4 rounded-lg text-black items-center text-center">
+        <div className="grid grid-cols-[1fr_65%_1fr] bg-white p-4 rounded-lg text-black items-center text-center">
           <span className="col-span-3 font-bold">Schedule</span>
           {course.schedule.map((schedule, index) => (
             <Fragment
               key={index}
             >
-              <span>{schedule.day}</span>
+              <span className="text-left">{schedule.day}</span>
               <span>{schedule.startTime} - {schedule.endTime}</span>
-              <span>{schedule.room}</span>
+              <span className="text-right">{schedule.room}</span>
             </Fragment>
           ))}
         </div>
 
-      </div>
-
-      <div className="grid grid-cols-4 gap-2 bg-white text-black p-2 rounded-lg text-center items-center">
-        <span>Terms</span>
-        {course.terms?.map((term, index) => (
-          <Link
-            href={`/portfolio/${code}/${term}`} 
-            key={index} 
-            className={cn(
-              'rounded-lg w-full py-1 text-center',
-              'shadow-sm transition-all duration-200',
-              'hover:shadow-md hover:brightness-110',
-              getTermColor(term)
-            )}
-          >
-            {toProperCase(term)}
-          </Link>
-        ))}
       </div>
       
       {pinned_submission && (
@@ -92,17 +74,34 @@ export default async function CoursePage({
         </div>
       )}
 
+      <div className="grid grid-cols-4 gap-2 p-2 rounded-lg text-center items-center">
+        <span className="">Terms</span>
+        {course.terms?.map((term, index) => (
+          <Link
+            href={`/portfolio/${code}/${term}`} 
+            key={index} 
+            className={cn(
+              'rounded-lg w-full py-1 text-center',
+              'shadow-sm transition-all duration-200',
+              'hover:shadow-md hover:brightness-110',
+              getTermColor(term)
+            )}
+          >
+            {toProperCase(term)}
+          </Link>
+        ))}
+      </div>
 
       <div className="flex flex-col gap-2">
-        <div className="bg-white text-black rounded-lg">
-          <h1 className="text-center p-2">Recent Submissions</h1>
+        <div>
+          <h3 className="text-xl">Recent Submissions</h3>
         </div>
         {recent_submissions.map((submission, index) => (
-          <Button key={index} className="bg-white h-16 text-black rounded-lg grid grid-cols-3 gap-2 items-center" asChild>
+          <Button key={index} className="bg-white h-16 p-4 text-black rounded-lg grid grid-rows-2 grid-cols-2 gap-2 items-center" asChild>
             <Link href={`/portfolio/submission/${submission.id}`}>
-              <p>ID:{submission.id}</p>
-              <p className="text-center">{submission.name}</p>
-              <p className="text-right">{dayjs.tz(submission.date, 'Asia/Manila').format('MMM DD, YYYY hh:mm:ss A')}</p>
+              <p className="text-gray-500 text-xs">ID:{submission.id}</p>
+              <p className="row-span-2 text-gray-500 text-xs text-right">{dayjs.tz(submission.date, 'Asia/Manila').format('MM/DD - hh:mm A')}</p>
+              <p className="font-bold">{submission.name}</p>
             </Link>
           </Button>
         ))}
