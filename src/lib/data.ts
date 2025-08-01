@@ -31,7 +31,7 @@ export const courses: Record<CourseCode, CourseInfo> = {
     professor: 'Israel Cariño',
     schedule: [
       {day: 'Tuesday', startTime: '04:30PM', endTime: '06:30PM', room: 'ONL'},
-      {day: 'Friday', startTime: '04:30PM', endTime: '07:30PM', room: 'TBA'},
+      {day: 'Friday', startTime: '04:30PM', endTime: '07:30PM', room: 'H-303'},
     ],
     terms: ['prelims'],
   },
