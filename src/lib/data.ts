@@ -19,8 +19,8 @@ export const courses: Record<CourseCode, CourseInfo> = {
     section: '401I',
     professor: 'Emerson Flores',
     schedule: [
-      {day: 'Monday', startTime: '01:30PM', endTime: '04:30PM', room: 'T-43'},
-      {day: 'Thursday', startTime: '01:30PM', endTime: '03:30PM', room: 'ONL'},
+      {day: 'Monday', startTime: '01:30PM', endTime: '03:30PM', room: 'ONL'},
+      {day: 'Thursday', startTime: '01:30PM', endTime: '04:30PM', room: 'TBA'},
     ],
     terms: ['prelims'],
   },
@@ -41,8 +41,8 @@ export const courses: Record<CourseCode, CourseInfo> = {
     section: '401I',
     professor: 'Sharmaine Justyne Maglapuz',
     schedule: [
-      {day: 'Monday', startTime: '05:00PM', endTime: '06:30PM', room: 'H-304'},
-      {day: 'Thursday', startTime: '05:00PM', endTime: '06:30PM', room: 'ONL'},
+      {day: 'Monday', startTime: '05:00PM', endTime: '06:30PM', room: 'ONL'},
+      {day: 'Thursday', startTime: '05:00PM', endTime: '06:30PM', room: 'TBA'},
     ],
     terms: ['prelims'],
   },
