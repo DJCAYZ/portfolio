@@ -14,7 +14,6 @@ export default function PortfolioLayout({
     <SidebarProvider>
       <PortfolioSidebar />
       <main className="w-full min-h-screen p-4">
-        <SidebarTrigger className="cursor-pointer border border-white" />
         {children}
       </main>
     </SidebarProvider>

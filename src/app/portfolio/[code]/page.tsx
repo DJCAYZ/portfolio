@@ -5,6 +5,7 @@ import dayjs from "@/lib/dayjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export default async function CoursePage({
   params
@@ -20,6 +21,7 @@ export default async function CoursePage({
   return (
     <div className="flex flex-col gap-2 w-full">
       <div className="p-2 flex justify-between gap-2 items-center">
+        <SidebarTrigger className="w-8 h-8" />
         <h1 className="text-left font-bold text-3xl">{course.title}</h1>
         <span className={
           cn(

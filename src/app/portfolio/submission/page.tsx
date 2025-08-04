@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { submissions } from "@/lib/data";
 import dayjs from "@/lib/dayjs";
 import Link from "next/link";
@@ -6,7 +7,10 @@ import Link from "next/link";
 export default function SubmissionListPage() {
   return (
     <div className="flex flex-col gap-2 w-full p-2">
-      <h1 className="font-bold text-3xl">All Submissions</h1>
+      <div className="flex gap-2 items-center">
+        <SidebarTrigger className="w-8 h-8" />
+        <h1 className="font-bold text-3xl">All Submissions</h1>
+      </div>
       <div className="flex flex-col gap-2 w-full">
         {submissions.sort((a, b) => a.id - b.id).map((submission, index) => (
           <Button key={index} className="bg-white p-2 text-black rounded-lg grid grid-cols-3 gap-2 items-center" asChild>

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import TextContent from "./text-content";
 import path from "path";
 import { promises as fs } from 'fs';
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 async function getMdContent(filePath: string) {
   try {
@@ -47,7 +48,10 @@ export default async function SubmissionDetailsPage({
     <div className="flex flex-col gap-4 p-4">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">{submission.name}</h1>
+        <div className="flex gap-2 items-center">
+          <SidebarTrigger className="w-8 h-8" />          
+          <h1 className="text-2xl font-bold">{submission.name}</h1>
+        </div>
         <div className="flex gap-2">
           <span className={cn(
             "px-3 py-1 rounded-lg text-sm",
