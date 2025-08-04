@@ -60,6 +60,14 @@ export const courses: Record<CourseCode, CourseInfo> = {
   },
 }
 
+export const files: File[] = [
+  {
+    id: 1,
+    fileName: 'AWS_Lab Activity 2.docx',
+    previewFile: 'AWS_Lab Activity 2.pdf',
+  },
+]
+
 export type CourseCode = 'itcc307' | 'itcc401' | 'itcc403' | 'itcc508';
 export type Term = 'prelims' | 'midterms' | 'finals';
 
@@ -98,5 +106,11 @@ interface TextSubmissionFile {
 interface OtherSubmissionFile {
   type: 'docx' | 'image';
   url: string;
+}
+
+export interface File {
+  id: number;
+  fileName: string;
+  previewFile: string;
 }
 
