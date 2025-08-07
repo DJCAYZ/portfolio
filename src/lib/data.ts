@@ -19,13 +19,38 @@ export const submissions: Submission[] = [
     entries: [
       { type: 'file', fileID: 1 },
     ],
-  }
+  },
+  {
+    id: 3,
+    name: 'Exercise 2 - NLP Text Preprocessing',
+    course: 'itcc508',
+    term: 'prelims',
+    date: '2025-08-06T23:36:00.000Z',
+    entries: [
+      { type: 'file', fileID: 3 },
+      { type: 'file', fileID: 2 },
+      { type: 'file', fileID: 4 },
+    ],
+    reflection: 'submissions/3/reflection.md',
+  },
 ]
 
 export const files: File[] = [
   {
     id: 1,
     fileName: 'AWS_Lab Activity 2.docx',
+  },
+  {
+    id: 2,
+    fileName: 'Exer2_SARMIENTO_CharlesAaron.doc',
+  },
+  {
+    id: 3,
+    fileName: 'Exer2_Sarmiento_CharlesAaron.ipynb',
+  },
+  {
+    id: 4,
+    fileName: 'Phishing_Email.csv',
   },
 ]
 
