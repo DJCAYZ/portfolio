@@ -4,6 +4,7 @@ import { toProperCase } from "@/lib/utils";
 import dayjs from "@/lib/dayjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export default async function TermPage({ params } : {
   params: Promise<{ term: Term, code: CourseCode }>
@@ -16,8 +17,11 @@ export default async function TermPage({ params } : {
   const submissionList = submissions.filter(submission => submission.course === code && submission.term === term);
   
   return (
-    <div className="flex flex-col gap-2 w-full p-2">
-      <h1 className="font-bold text-3xl">{course.shortCode} {toProperCase(term)} Submissions</h1>
+    <div className="flex flex-col gap-2 w-full p-4">
+      <div className="flex gap-2 items-center">
+        <SidebarTrigger className="w-8 h-8" />
+        <h1 className="font-bold text-3xl">{course.shortCode} {toProperCase(term)} Submissions</h1>
+      </div>
       <div className="flex flex-col gap-2 w-full">
         {submissionList.map((submission, index) => (
           <Button key={index} className="bg-white h-16 p-4 text-black rounded-lg grid grid-rows-2 grid-cols-2 gap-2 items-center" asChild>

@@ -1,10 +1,16 @@
-import { courses, submissions } from "@/lib/data";
+import { courses, files, submissions } from "@/lib/data";
 import { cn, getColor, getTermColor, toProperCase } from "@/lib/utils";
 import dayjs from "@/lib/dayjs";
 import { notFound } from "next/navigation";
 import TextContent from "./text-content";
 import path from "path";
 import { promises as fs } from 'fs';
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Eye } from "lucide-react";
+import DownloadButton from "@/components/download-button";
 
 async function getMdContent(filePath: string) {
   try {
@@ -27,14 +33,17 @@ export default async function SubmissionDetailsPage({
 
   if (!submission) return notFound();
 
-  const fileContents = await Promise.all(
-    submission.files.map(async file => {
-      if (file.type === 'text') {
-        const content = await getMdContent(file.contents);
-        return { ...file, contents: content};
+  const entryDetails = await Promise.all(
+    submission.entries.map(async entry => {
+      if (entry.type === 'text') {
+        const content = await getMdContent(entry.contents);
+        return { ...entry, contents: content};
+      } else if (entry.type === 'file') {
+        const file = files.find(fileEntry => fileEntry.id === entry.fileID);
+        return { ...entry, file };
       }
 
-      return file;
+      return entry;
     })
   )
 
@@ -47,7 +56,10 @@ export default async function SubmissionDetailsPage({
     <div className="flex flex-col gap-4 p-4">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">{submission.name}</h1>
+        <div className="flex gap-2 items-center">
+          <SidebarTrigger className="w-8 h-8" />          
+          <h1 className="text-2xl font-bold">{submission.name}</h1>
+        </div>
         <div className="flex gap-2">
           <span className={cn(
             "px-3 py-1 rounded-lg text-sm",
@@ -73,26 +85,43 @@ export default async function SubmissionDetailsPage({
       </div>
 
       {/* Files */}
-      <div className="bg-white text-black rounded-lg p-4">
-        <h2 className="text-lg font-bold mb-4">Files</h2>
-        <div className="space-y-4">
-          {fileContents.map((file, index) => (
-            <div key={index} className="border rounded-lg p-4">
-              {file.type === 'text' ? (
-                <TextContent contents={file.contents} />
-              ) : (
-                <a 
-                  href={file.url}
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="text-blue-600 hover:underline"
-                >
-                  View {file.type.toUpperCase()} File
-                </a>
-              )}
+      <h2 className="text-lg font-bold">Entries</h2>
+      <div className="space-y-2">
+        {entryDetails.map((entry, index) => (
+          <div key={index} className="bg-white text-black rounded-lg p-4">
+            <div className="space-y-2">
+              <h3 className="text-gray-500 text-sm">{toProperCase(entry.type)} Entry</h3>
+              <div key={index} className="border rounded-lg">
+                {entry.type === 'text' ? (
+                  <TextContent contents={entry.contents} />
+                ) : entry.type === 'file' ? (
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="col-span-2">{entry.file?.fileName}</span>
+                    <div className="flex gap-2">
+                      <Button asChild>
+                        <Link href={`/portfolio/files/${entry.file?.id}`}>
+                          <Eye className="mr-2 h-4 w-4" />
+                          Preview
+                        </Link>
+                      </Button>
+                      <DownloadButton
+                        link={`/content/files/${entry.file?.id}/${entry.file?.fileName}`}
+                        fileName={entry.file?.fileName}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={`/content/images/${submission.id}/${entry.fileName}`}
+                    width={entry.width}
+                    height={entry.height}
+                    alt={entry.alt || 'An image entry for a submission'}
+                  />
+                )}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       {/* Learning Reflections */}
