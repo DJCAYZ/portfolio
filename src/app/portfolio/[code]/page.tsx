@@ -19,7 +19,7 @@ export default async function CoursePage({
   if (!course) return notFound();
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-2 w-full p-4">
       <div className="p-2 flex justify-between gap-2 items-center">
         <SidebarTrigger className="w-8 h-8" />
         <h1 className="text-left font-bold text-3xl">{course.title}</h1>

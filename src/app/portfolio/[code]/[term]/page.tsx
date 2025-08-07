@@ -17,7 +17,7 @@ export default async function TermPage({ params } : {
   const submissionList = submissions.filter(submission => submission.course === code && submission.term === term);
   
   return (
-    <div className="flex flex-col gap-2 w-full p-2">
+    <div className="flex flex-col gap-2 w-full p-4">
       <div className="flex gap-2 items-center">
         <SidebarTrigger className="w-8 h-8" />
         <h1 className="font-bold text-3xl">{course.shortCode} {toProperCase(term)} Submissions</h1>

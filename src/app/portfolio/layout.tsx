@@ -13,7 +13,7 @@ export default function PortfolioLayout({
   return (
     <SidebarProvider>
       <PortfolioSidebar />
-      <main className="w-full min-h-screen p-4">
+      <main className="w-full min-h-screen relative">
         {children}
       </main>
     </SidebarProvider>
