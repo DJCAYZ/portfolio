@@ -112,10 +112,10 @@ export default async function SubmissionDetailsPage({
                   </div>
                 ) : (
                   <Image
-                    src={entry.url}
-                    width={100}
-                    height={100}
-                    alt="TODO: figure out image loading holy shit"
+                    src={`/content/images/${submission.id}/${entry.fileName}`}
+                    width={entry.width}
+                    height={entry.height}
+                    alt={entry.alt || 'An image entry for a submission'}
                   />
                 )}
               </div>

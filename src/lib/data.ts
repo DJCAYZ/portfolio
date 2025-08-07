@@ -120,7 +120,10 @@ interface FileSubmissionEntry {
 
 interface ImageSubmissionEntry {
   type: 'image';
-  url: string;
+  fileName: string;
+  width: number;
+  height: number;
+  alt?: string;
 }
 
 export interface File {
