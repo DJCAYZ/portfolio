@@ -64,7 +64,6 @@ export const files: File[] = [
   {
     id: 1,
     fileName: 'AWS_Lab Activity 2.docx',
-    previewFile: 'AWS_Lab Activity 2.pdf',
   },
 ]
 
@@ -111,6 +110,5 @@ interface OtherSubmissionFile {
 export interface File {
   id: number;
   fileName: string;
-  previewFile: string;
 }
 
