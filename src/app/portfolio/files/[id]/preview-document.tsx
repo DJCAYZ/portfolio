@@ -19,7 +19,7 @@ const options = {
 
 const resizeObserverOptions = {};
 
-const maxWidth = 600;
+const maxWidth = 800;
 
 export default function PreviewDocument({ file }: { file: File }) {
   const [numPages, setNumPages] = useState<number>();
@@ -74,7 +74,7 @@ export default function PreviewDocument({ file }: { file: File }) {
   return (
     <div ref={setContainerRef} className="flex justify-center px-4 py-2">
       <Document
-        file={`/content/file/${file.id}/preview.pdf`}
+        file={`/content/files/${file.id}/preview.pdf`}
         options={options}
         onLoadSuccess={onDocumentLoadSuccess}
         onLoadError={() => console.log('test')}

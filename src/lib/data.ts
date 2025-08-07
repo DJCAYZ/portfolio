@@ -5,10 +5,27 @@ export const submissions: Submission[] = [
     course: 'itcc508',
     term: 'prelims',
     date: '2025-07-29T22:42:00.000Z',
-    files: [
+    entries: [
       { type: 'text', contents: 'submissions/1/content.md' },
     ],
     reflection: 'submissions/1/reflection.md',
+  },
+  {
+    id: 2,
+    name: 'AWS Lab Activity 2',
+    course: 'itcc401',
+    term: 'prelims',
+    date: '2025-08-01T20:30:00.000Z',
+    entries: [
+      { type: 'file', fileID: 1 },
+    ],
+  }
+]
+
+export const files: File[] = [
+  {
+    id: 1,
+    fileName: 'AWS_Lab Activity 2.docx',
   },
 ]
 
@@ -60,12 +77,6 @@ export const courses: Record<CourseCode, CourseInfo> = {
   },
 }
 
-export const files: File[] = [
-  {
-    id: 1,
-    fileName: 'AWS_Lab Activity 2.docx',
-  },
-]
 
 export type CourseCode = 'itcc307' | 'itcc401' | 'itcc403' | 'itcc508';
 export type Term = 'prelims' | 'midterms' | 'finals';
@@ -93,17 +104,22 @@ interface Submission {
   course: CourseCode;
   term: Term;
   date: string;
-  files: (TextSubmissionFile | OtherSubmissionFile)[];
+  entries: (TextSubmissionEntry | FileSubmissionEntry | ImageSubmissionEntry)[];
   reflection?: string;
 }
 
-interface TextSubmissionFile {
+interface TextSubmissionEntry {
   type: 'text';
   contents: string;
 }
 
-interface OtherSubmissionFile {
-  type: 'docx' | 'image';
+interface FileSubmissionEntry {
+  type: 'file';
+  fileID: number;
+}
+
+interface ImageSubmissionEntry {
+  type: 'image';
   url: string;
 }
 

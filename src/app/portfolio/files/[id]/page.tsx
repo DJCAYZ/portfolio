@@ -19,7 +19,7 @@ export default async function FilePage({ params }: { params: Promise<{ id: strin
         </div>
 
         <DownloadButton
-          link={`/content/file/${file.id}/${file.fileName}`}
+          link={`/content/files/${file.id}/${file.fileName}`}
           fileName={file.fileName}
         />
         

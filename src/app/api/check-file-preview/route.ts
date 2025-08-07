@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const fullPath = path.join(process.cwd(), 'public', 'content', 'file', id, 'preview.pdf');
+    const fullPath = path.join(process.cwd(), 'public', 'content', 'files', id, 'preview.pdf');
     await fs.access(fullPath);
     return NextResponse.json({ exists: true });
   } catch {
