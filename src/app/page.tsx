@@ -14,7 +14,7 @@ export default function Home() {
             alt="NextJS Logo"
             priority
           />
-          <h1 className="text-3xl text-center font-bold">Charles Aaron S. (DJCAYZ)</h1>
+          <h1 className="text-3xl text-center font-bold">Charles Aaron S.</h1>
           <p className="text-xs text-center font-light">Student | Aspiring Software Developer | Amateur Video Editor</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4">
