@@ -65,7 +65,7 @@ export default function PreviewDocument({ file }: { file: File }) {
       <div className="flex justify-center p-20">
         <div className="bg-gray-500 px-20 py-4 rounded-lg flex flex-col justify-center gap-2">
           <p>Preview not available</p>
-          <DownloadButton link={`/content/file/${file.id}/${file.fileName}`} fileName={file.fileName} />
+          <DownloadButton link={`/content/files/${file.id}/${file.fileName}`} fileName={file.fileName} />
         </div>
       </div>
     );
