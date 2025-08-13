@@ -33,6 +33,18 @@ export const submissions: Submission[] = [
     ],
     reflection: 'submissions/3/reflection.md',
   },
+  {
+    id: 4,
+    name: 'Exercise #3: Text Representation',
+    course: 'itcc508',
+    term: 'prelims',
+    date: '2025-08-13T23:27:00.000Z',
+    entries: [
+      { type: 'file', 'fileID': 5 },
+      { type: 'file', 'fileID': 6 },
+    ],
+    reflection: 'submissions/4/reflection.md',
+  },
 ]
 
 export const files: File[] = [
@@ -51,6 +63,14 @@ export const files: File[] = [
   {
     id: 4,
     fileName: 'Phishing_Email.csv',
+  },
+  {
+    id: 5,
+    fileName: 'SarmientoCharlesAaron_Exercise3_NLP_Representation.doc',
+  },
+  {
+    id: 6,
+    fileName: 'SarmientoCharlesAaron_Exercise3_NLP_Representation.ipynb',
   },
 ]
 
